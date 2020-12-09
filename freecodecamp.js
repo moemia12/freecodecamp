@@ -11,14 +11,41 @@ function sumAll(arr) {
     let result = 0;                                 // Result initially at 0 which will be returned with the sum of min/ max value of arr
     
     for (let i = minNumber; i <= maxNumber; i++){   // For loop to iterate through both min/ max values to find sum up inidivual values for 'result'
-      result += i;
+    result += i;
     }
     
     return result
     
     }
     
-    sumAll([1, 4]);
+    sumAll([1, 4]);                                 // Any number inside this array will be summed 
     
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Intermediate Algorithm Scripting: Diff Two ArraysPassed
+// Compare two arrays and return a new array with any items only found in one of the two given arrays, but not both. In other words, return the symmetric difference of the two arrays.
+
+// Note: You can return the array with its elements in any order.
+
+function diffArray(arr1, arr2) {
+    var newArr = [];
+  
+        for(let i = 0; i < arr1.length; i++){       // Iterate through arr1 and match against the index of arr2
+            if(arr2.indexOf(arr1[i]) === -1){       // If indexOf arr2 is -1 then that element is not present in arr1
+            newArr.push(arr1[i]);                   // newArr will push the element missing from arr1
+            }
+        }     
+  
+        for(let j = 0; j < arr2.length; j++){       // A reverse iteration is performed to match indexOf arr1 to arr2
+            if(arr1.indexOf(arr2[j]) === -1){
+            newArr.push(arr2[j]);
+            }
+        }
+  
+    return newArr;
+}
+  
+  diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
+  
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
