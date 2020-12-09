@@ -48,4 +48,31 @@ function diffArray(arr1, arr2) {
   
   diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
   
-  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Intermediate Algorithm Scripting: Seek and Destroy
+// You will be provided with an initial array (the first argument in the destroyer function), followed by one or more arguments. Remove all elements from the initial array that are of the same value as these arguments.
+
+//Note
+//You have to use the arguments object.
+
+  function destroyer(arr) {
+
+    let finalElement = [];                                  // Declaring the final element to be displayed
+    let firstArray = Object.values(arr);                    // Initial Array found below is allocated to let firstArray
+    let forArguments = Object.values(arguments).splice(1);  // This is the arguments allocated within the function (splicing starts from index 1 to infinity)
+    
+    for(let i = 0; i < firstArray.length; i++){             // Iterating through firstArray and setting the iteration to let iteratedArray below
+      let iteratedArray = firstArray[i];
+    
+      if(forArguments.indexOf(iteratedArray) === -1){       // If the forArguments variable is not present inside the iteratedArray variable 
+        finalElement.push(iteratedArray)                    // Then the finalElement variable will push the iteratedArray variable
+      }
+    }
+    
+      return finalElement;
+    }
+    
+    console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3));
+    
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
