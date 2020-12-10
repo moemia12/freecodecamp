@@ -107,12 +107,12 @@ whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: 
 
 function spinalCase(str) {
 
-  let camelCase = str.replace(/([a-z])([A-Z])/g, "$1 $2");            // Use regex to find areas where lower/uppercase characters meet and replace with a whitespace(the $1$2 is spaced by $1 $2)
-  let spacesAndDashes = camelCase.replace(/\s|_/g, "-");              // Now that all white spaces have been inpputed, the spaces will be replaced with a dash (-)
+  let replaceWithSpaces = str.replace(/([a-z])([A-Z])/g, "$1 $2");    // Use regex to find areas where lower/uppercase characters meet and replace with a whitespace(the $1$2 is spaced by $1 $2)
+  let replaceWithDashes = replaceWithSpaces.replace(/\s|_/g, "-");    // Now that all white spaces have been inpputed, the spaces will be replaced with a dash (-)
 
 
 
-  return spacesAndDashes.toLowerCase();                               // spaceAndDashes variable, being the final variable is transformed to lower case
+  return replaceWithDashes.toLowerCase();                               // replaceWithDashes variable, being the final variable is transformed to lower case
 }
 
 spinalCase('This Is Spinal Tap');
