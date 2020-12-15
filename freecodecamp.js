@@ -290,3 +290,35 @@ function uniteUnique(arr) {
   console.log(result)
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  // Intermediate Algorithm Scripting: Sum All Odd Fibonacci Numbers
+  // Given a positive integer num, return the sum of all odd Fibonacci numbers that are less than or equal to num.
+  // The first two numbers in the Fibonacci sequence are 1 and 1. Every additional number in the sequence is the sum of the two previous numbers. 
+  // The first six numbers of the Fibonacci sequence are 1, 1, 2, 3, 5 and//8.
+  // For example, sumFibs(10) should return 10 because all odd Fibonacci numbers less than or equal to 10 are 1, 1, 3, and 5.
+
+  function sumFibs(num) {
+
+    let fibbonacciSequence = [0, 1];                                  // Initialise the fibbonacci sequence into a variable
+    let sumOfOddFibbonacciNumbers = 1;                                // Set the sum of all fib numbers (0 + 1 = 1)
+    let counter = fibbonacciSequence[fibbonacciSequence.length - 2] + // Counter will include fib sequence at position -2 and -1
+                  fibbonacciSequence[fibbonacciSequence.length - 1]
+    
+    while (counter <= num){                                           // While counter is below num , fib sequence will push counter
+      fibbonacciSequence.push(counter);
+    
+      if(counter % 2 != 0){                                           // If counter is an even number the sum of fib numbers will = counter (which will count the odd numbers)
+        sumOfOddFibbonacciNumbers += counter;                         
+      }
+    
+      counter = fibbonacciSequence[fibbonacciSequence.length - 2] +  // Counter will sum up all odd numbers
+                fibbonacciSequence[fibbonacciSequence.length - 1]
+    
+    }
+    return sumOfOddFibbonacciNumbers;
+    
+    }
+    
+    sumFibs(4);
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
