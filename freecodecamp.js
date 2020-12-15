@@ -321,4 +321,47 @@ function uniteUnique(arr) {
     
     sumFibs(4);
 
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Intermediate Algorithm Scripting: Sum All Primes
+//A prime number is a whole number greater than 1 with exactly two divisors: 1 and itself. For example, 2 is a prime number because it is only divisible by 1 and 2. 
+// In contrast, 4 is not prime since it is divisible by 1, 2 and 4.
+
+// Rewrite sumPrimes so it returns the sum of all prime numbers that are less than or equal to num.
+
+function isPrime(number){                                             // Create a function that first finds the odd number using a given number
+
+  let counter = 2;                                                    // Start the counter at 2 and find remainders of numbers using moduler to find odd numbers
+
+        while(counter < number){                                      // While counter is lower than number look for if statement
+           if(number % counter === 0)                                 // If the remainder of counter while dividing into number is 0 then this is false (even number)
+           { return false }
+    
+           counter += 1                                               // In the meantime the counter will += 1 then return true
+           }
+  return true
+}
+
+function sumPrimes(num) {
+
+          if(num <= 1)                                                // So no negative numbers or 0 is inputted
+          { return "Numbers lower than zero invalid" }
+
+          let counter = 2;                                            // Initialise counter again at 2
+          let sum = 0;                                                // Initialise sum at 0 - This will be the final output
+
+          while(counter <= num){                                      // While counter is lower or equal to num inputted by user
+          if(isPrime(counter) === true)                               // Using the previously built function above isPrime(number) is true then sum will + counter
+          { sum += counter }
+
+          counter += 1;
+          }
+
+  return sum;
+}
+
+
+
+sumPrimes(10);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
