@@ -157,3 +157,39 @@ let result = myReplace("I think we should look up there", "up", "Down");
 console.log(result)
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Intermediate Algorithm Scripting: DNA Pairing
+// The DNA strand is missing the pairing element. Take each character, get its pair, and return the results as a 2d array.
+// Base pairs are a pair of AT and CG. Match the missing element to the provided character.
+// Return the provided character as the first element in each array.
+// For example, for the input GCG, return [["G", "C"], ["C","G"],["G", "C"]]
+
+// The character and its pair are paired up in an array, and all the arrays are grouped into one encapsulating array.
+
+function pairElement(str) {
+
+  function calculate(initial){                                        // This is a helper function using base pairs as arguments
+    if(initial === "A"){
+      return "T"
+    } else if (initial === "T"){
+      return "A"
+    } else if (initial === "G"){
+      return "C"
+    } else if (initial === "C"){
+      return "G"
+    } 
+  }
+  
+  let split = str.split("").map(newStr => {                           // The str is split, creating individual strings. It is then passed into a map function which inserts data
+    let pair = [newStr, calculate(newStr)]                            // Using the helper function above
+    return pair
+  });
+  
+  
+  return split
+  
+  }
+  
+  pairElement("GCG");
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
