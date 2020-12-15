@@ -223,3 +223,31 @@ function fearNotLetter(str) {
 let result = fearNotLetter("stvwx");
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Intermediate Algorithm Scripting: Sorted Union
+// Write a function that takes two or more arrays and returns a new array of unique values in the order of the original provided arrays.
+// In other words, all values present from all arrays should be included in their original order, but with no duplicates in the final array.
+// The unique numbers should be sorted by their original order, but the final array should not be sorted in numerical order.
+
+// Check the assertion tests for examples.
+
+function uniteUnique(arr) {
+
+  let finalCollection = [];                                            // Initialise finalCollection array to be the output of the function 
+  let values = Object.values(arguments);                               // Initialise the values of the array passed into the uniteUnique function
+
+  values.forEach(groupOfGroups => {                                    // Check to see if the values variable is present within the finalCollection
+    groupOfGroups.forEach(individualValues => {
+      if(finalCollection.indexOf(individualValues) === -1){
+        finalCollection.push(individualValues);                        // If not then final collection will push the individual values
+      }
+    });
+  });
+  
+  return finalCollection
+  }
+  
+  uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
+
+  
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
