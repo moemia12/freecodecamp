@@ -193,3 +193,33 @@ function pairElement(str) {
   pairElement("GCG");
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Intermediate Algorithm Scripting: Missing letters
+// Find the missing letter in the passed letter range and return it.
+
+// If all letters are present in the range, return undefined.
+
+function fearNotLetter(str) {
+
+  let alphabet = ("abcdefghijklmnopqrstuvwxyz").split("");              // Initialise the alphabet into a string with individual strings
+  let startingPosition = alphabet.indexOf(str[0]);                      // Initialise a starting position of the str against the alphabet variable
+  let focussedAlphabet = alphabet.slice(startingPosition);              // This will use the alphabet as a reference to the starting position to be iterated below 
+
+  for(let i = 0; i < focussedAlphabet.length; i++){                     // Iterating through focussed alphabet 
+
+    if(str.indexOf(focussedAlphabet[i])=== -1){                         // Using the iterated focussed alphabet and checking which index is the str. If index is -1 it means the letter is absent
+      return focussedAlphabet[i];                                       // If the letter is absent, return the absent letter using focussedAlphabet[i]
+    } 
+  }
+
+  if (str.indexOf(alphabet > 0)){                                       // If all of the alphabet is present then return undefined. (If index is > 0 then all letters are present)
+      return undefined
+    };
+
+  return focussedAlphabet
+
+}
+
+let result = fearNotLetter("stvwx");
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
