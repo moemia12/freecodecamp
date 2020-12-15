@@ -251,3 +251,42 @@ function uniteUnique(arr) {
 
   
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  // Intermediate Algorithm Scripting: Convert HTML Entities
+  // Convert the characters &, <, >, " (double quote), and ' (apostrophe), in a string to their corresponding HTML entities.
+
+  function convertedElements(letter){                                  // Create a function which takes in symbols and returns their HTML entities
+    if(letter === "&"){
+      return "&amp;"
+    } else if(letter === "<"){
+      return "&lt;"
+    } else if(letter === ">"){
+      return "&gt;"
+    } else if(letter === "'"){
+      return "&apos;"
+    } else if (letter === '"'){
+      return "&quot;"
+    }
+  }
+  
+  
+  function convertHTML(str) {
+  
+    let convertToCharacters = ["&", "<", ">", '"', "'"];              // Create a variable filled with symbols to lookout for and convert
+
+    for (let i = 0; i < str.length; i++){                             // Iterate through the str and check to see which index is the symbol within the str
+        if(convertToCharacters.indexOf(str[i]) != -1){                // If indexOf convertToCharacters is NOT -1 (Meaning its present inside the str)
+          str = str.slice(0, i) +                                     // Str will slice at index 0 and end at index i (Where the symbol is) creating a new str without the symbol
+          convertedElements(str[i]) +                                 // The str will + the function (convertToElements) created earlier and pass in the str at position [i]
+          str.slice(i + 1)                                            // The final str will slice the initial str at position (i + 1) which is the next index after position i
+        };
+    }
+    
+    return str;
+  }
+  
+  let result = convertHTML("Sixty > twelve");
+  
+  console.log(result)
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
