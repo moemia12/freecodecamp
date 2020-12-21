@@ -365,3 +365,79 @@ function sumPrimes(num) {
 sumPrimes(10);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Intermediate Algorithm Scripting: Smallest Common Multiple
+// Find the smallest common multiple of the provided parameters that can be evenly divided by both, as well as by all sequential numbers in the range between these parameters.
+// The range will be an array of two numbers that will not necessarily be in numerical order.
+// For example, if given 1 and 3, find the smallest common multiple of both 1 and 3 that is also evenly divisible by all numbers between 1 and 3. The answer here would be 6.
+
+function smallestCommons(arr) {
+
+  let lowerNum, higherNum;
+  
+    if (arr[0] > arr[1]){
+      lowerNum = arr[1];
+      higherNum = arr[0];
+    } else {
+      lowerNum = arr[0];
+      higherNum = arr[1]
+    }
+  
+  let range = getRange(lowerNum, higherNum);
+  
+  let multiple = 1;
+    while (multiple < 1000000){
+      let higherCommonMultiple = (lowerNum * multiple)* higherNum;
+  
+      let trueCount = 0;
+        for (let i = 0; i < range.length; i++){
+  
+        if(higherCommonMultiple % range[i] === 0){
+        trueCount += 1;
+  
+        if(trueCount === range.length){
+          return higherCommonMultiple
+        }
+       }
+      }
+  
+      multiple += 1;
+    }
+  
+  return arr;
+  }
+  
+  function getRange (lowN, highN){
+    let resultRange = [];
+    for (let i = lowN; i <= highN; i++){
+      resultRange.push(i);
+    }
+    return resultRange;
+  }
+  
+  smallestCommons([1,5]);
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Intermediate Algorithm Scripting: Drop it
+// Given the array arr, iterate through and remove each element starting from the first element (the 0 index) until the function func returns true when the iterated element is passed through it.
+// Then return the rest of the array once the condition is satisfied, otherwise, arr should be returned as an empty array.
+
+function dropElements(arr, func) {
+
+  let result = [];                                                   // Initialise the result with an empty array, so nothing is return if n if not within the array
+
+  for(let i = 0; i < arr.length; i++){                               // The for loop will iterate through the array and match against the number within the function (n)
+
+    if(func(arr[i])){                                                // If func(n) is at position arr[i], this means that n is present within the arr 
+      return arr.slice(i);                                           // arr.slice will create new array from position i
+    }
+  }
+
+
+  return result;                                                     // If nothing else is present, then result will return an empty array
+}
+
+dropElements([1, 2, 3], function(n) {return n < 3; });
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
