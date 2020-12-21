@@ -441,3 +441,26 @@ function dropElements(arr, func) {
 dropElements([1, 2, 3], function(n) {return n < 3; });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Intermediate Algorithm Scripting: Steamroller
+// Flatten a nested array. You must account for varying levels of nesting.
+
+function steamrollArray(arr, result = []) {
+  
+  arr.forEach((item) => {                                            // Loop created for each item being an array
+    if (Array.isArray(item)) {                                       // If item is an array, then the loop will open the array to find the item
+      steamrollArray(item, result);                   
+    } else {  
+      result.push(item);                                             // If item is NOT an array, then the loop will push the item onto the result array
+    }
+
+  });
+  
+  return result;
+}
+
+let result = steamrollArray([1, [2], [3, [[4]]]]);
+
+console.log(result)
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
