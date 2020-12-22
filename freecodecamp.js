@@ -611,3 +611,47 @@ var bob = new Person('Bob Ross');
 bob.getFullName();
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Intermediate Algorithm Scripting: Map the Debris
+// Return a new array that transforms the elements' average altitude into their orbital periods (in seconds).
+// The array will contain objects in the format {name: 'name', avgAlt: avgAlt}.
+
+// You can read about orbital periods on Wikipedia.
+// The values should be rounded to the nearest whole number. The body being orbited is Earth.
+// The radius of the earth is 6367.4447 kilometers, and the GM value of earth is 398600.4418 km3s-2.
+
+function orbitalPeriod(arr) {
+  var GM = 398600.4418;                                                // Predefined Gravitational Mass
+  var earthRadius = 6367.4447;                                         // Predefined Earth Radius
+
+  let orbitalPeriodResults = [];
+
+  arr.forEach(function(dataPoint){                                    
+    let translatedDataPoint = {};
+    let twoTimePie = Math.PI * 2;
+    let earthRadiusPlusAvgAltitude = 6367.4447 + dataPoint.avgAlt;
+    let topOfDivider = Math.pow(earthRadiusPlusAvgAltitude,3) ;
+
+    let numberToSquare = topOfDivider /GM;
+    let squaredResult = Math.sqrt(numberToSquare);
+
+    let orbitalPeriodResult = twoTimePie * squaredResult; 
+
+    translatedDataPoint.name = dataPoint.name;
+    translatedDataPoint.orbitalPeriod = Math.round(orbitalPeriodResult);
+
+
+    orbitalPeriodResults.push(translatedDataPoint)
+  });
+
+
+  return orbitalPeriodResults;
+}
+
+orbitalPeriod([
+  {name : "sputnik",                                                  // DataPoints
+  avgAlt : 35873.5553
+  }]);
+
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
