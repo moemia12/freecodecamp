@@ -512,3 +512,56 @@ function truthCheck(collection, pre) {
   
   }
   truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy", "sex": "male"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex");
+
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Intermediate Algorithm Scripting: Arguments Optional
+// Create a function that sums two arguments together. If only one argument is provided, then return a function that expects one argument and returns the sum.
+// For example, addTogether(2, 3) should return 5, and addTogether(2) should return a function.
+// Calling this returned function with a single argument will then return the sum:
+
+// var sumTwoAnd = addTogether(2);
+// sumTwoAnd(3) returns 5.
+
+// If either argument isn't a valid number, return undefined.
+
+function addTogether() {
+
+  let firstArgument = arguments[0];                                   // Initialise the first argument to be the first index as it will always be defined
+  
+  if (arguments.length > 1){                                          // The "arguments" is the arguments or parameters of the function addTogether()
+  let secondArgument = arguments[1];                                  // The second argument will be defined only if there is more than 1 argument
+  if (argumentCheck(firstArgument) !== undefined &&                   // This will check if the first and second is NOT undefined, meaning that it holds a number each
+     argumentCheck(secondArgument) !== undefined){
+       return firstArgument + secondArgument                          // Then both numbers will be summed up
+     } else {
+       return undefined                                               // If one of the two arguments is undefined then the function will return undefined
+    } 
+  } 
+  
+  else if (arguments.length === 1){                                   // // The second argument will be defined only if there is more than 1 argument
+    if (argumentCheck(firstArgument) === undefined){                  // This will use the function below to check if the second argument is a number and if so then return undefined
+      return undefined
+    } else {
+      return function(secondArgument){                                // Or if the second or first argument is a number then return the sum, if not then return undefined
+        if (argumentCheck(firstArgument) !== undefined && 
+     argumentCheck(secondArgument) !== undefined){
+       return firstArgument + secondArgument
+        }
+      }
+    }
+  }
+  
+  }
+  
+  function argumentCheck(argument){                                    // This function will look to see if the given argument is a number and used above
+    if (typeof argument === "number"){
+      return argument;
+    } else {
+      return undefined;
+    }
+  }
+  
+  console.log(addTogether(2,3));
+  
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
