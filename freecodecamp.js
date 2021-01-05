@@ -678,3 +678,33 @@ function palindrome(str) {
 }
 
 palindrome("eye");
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// JavaScript Algorithms and Data Structures Projects: Roman Numeral Converter
+// Convert the given number into a roman numeral.
+
+// All roman numerals answers should be provided in upper-case.
+
+function convertToRoman(num) {
+
+  let result = ""                                                                               // Initialise an empty variable
+  let romanNumbers = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"];   // Initialise Roman numerals
+  let englishNumbers = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]                   // Initialise English numerals
+  
+  
+  for(let i = 0; i < englishNumbers.length; i++){                                               // Iterate through each english number until length complete
+      while(num >= englishNumbers[i]){                                                          // Action to perform for every iteration that num is more than or equal to englishNumber[i]
+          result += romanNumbers[i];                                                            // Result is romanNumbers at position [i]
+          num -= englishNumbers[i];                                                             // num will decrease until iteration is complete
+      }
+  }
+  
+  
+  
+   return result;
+  }
+  
+  convertToRoman(12);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
