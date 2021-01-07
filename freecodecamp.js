@@ -743,4 +743,46 @@ function rot13(str) {
   
   console.log(rot13("SERR PBQR PNZC"));                                       // Returns FREE CODE CAMP
   
-  
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  // freeCodeCamp.org JavaScript Algorithms and Data Structures Projects: Telephone Number Validator
+  //Return true if the passed string looks like a valid US phone number.
+
+  // For this challenge you will be presented with a string such as 800-692-7753 or 8oo-six427676;laskdjf. Your job is to validate or reject the US phone number based on any combination of the formats provided above. The area code is required. If the country code is provided, you must confirm that the country code is 1. Return true if the string is a valid US phone number; otherwise return false.
+
+
+  function telephoneCheck(str) {
+
+    if (str.indexOf("(") === -1 && str.indexOf(")") > -1){
+          return false;
+    }
+    
+    if (str[0] === "-"){
+      return false;
+    }
+    
+    if(str.indexOf(")") - str.indexOf("(") >= 5){
+      return false;
+    }
+    
+    let polishedPhone = str.replace(/-| /g, "");
+    
+    if(polishedPhone.indexOf("(") < polishedPhone.indexOf(")")){
+      polishedPhone = polishedPhone.replace(/\(|\)/g, "");
+    }
+    
+    if(polishedPhone.length === 10){
+      return true;
+    } else if (polishedPhone.length === 11 && polishedPhone[0] === "1"){
+      return true;
+    }
+    
+    
+    
+      return false;
+    }
+    
+    telephoneCheck("555-555-5555");
+
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
