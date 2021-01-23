@@ -885,3 +885,25 @@ function rot13(str) {
       ["TWENTY", 60.0],
       ["ONE HUNDRED", 100.0]
     ]);
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Function to calculate Body Mass Index - Using weight & height values and returning a string value
+    function bmi(weight, height) {
+  
+      let result = "";
+      let bmi = weight/ (height * height);
+      
+      if(bmi <= 18.5){result += "Underweight"} 
+      else if (bmi <= 25){result += "Normal"}
+      else if (bmi <= 30){result += "Overweight"}
+      else if (bmi > 30){result += "obese"}
+        
+        
+        
+      
+      
+      return result;
+    }
+    
+    
+    console.log(bmi(95, 1.77))
