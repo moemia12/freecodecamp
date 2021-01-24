@@ -5,21 +5,21 @@
 
 function sumAll(arr) {
 
-    let minNumber = Math.min(arr[0], arr[1]);       //Find the min number within the array to compute
-    let maxNumber = Math.max(arr[0], arr[1]);       // Find the max number within the array to compute 
-    
-    let result = 0;                                 // Result initially at 0 which will be returned with the sum of min/ max value of arr
-    
-    for (let i = minNumber; i <= maxNumber; i++){   // For loop to iterate through both min/ max values to find sum up inidivual values for 'result'
+  let minNumber = Math.min(arr[0], arr[1]);       //Find the min number within the array to compute
+  let maxNumber = Math.max(arr[0], arr[1]);       // Find the max number within the array to compute 
+
+  let result = 0;                                 // Result initially at 0 which will be returned with the sum of min/ max value of arr
+
+  for (let i = minNumber; i <= maxNumber; i++) {   // For loop to iterate through both min/ max values to find sum up inidivual values for 'result'
     result += i;
-    }
-    
-    return result
-    
-    }
-    
-    sumAll([1, 4]);                                 // Any number inside this array will be summed 
-    
+  }
+
+  return result
+
+}
+
+sumAll([1, 4]);                                 // Any number inside this array will be summed 
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -29,25 +29,25 @@ function sumAll(arr) {
 // Note: You can return the array with its elements in any order.
 
 function diffArray(arr1, arr2) {
-    var newArr = [];
-  
-        for(let i = 0; i < arr1.length; i++){       // Iterate through arr1 and match against the index of arr2
-            if(arr2.indexOf(arr1[i]) === -1){       // If indexOf arr2 is -1 then that element is not present in arr1
-            newArr.push(arr1[i]);                   // newArr will push the element missing from arr1
-            }
-        }     
-  
-        for(let j = 0; j < arr2.length; j++){       // A reverse iteration is performed to match indexOf arr1 to arr2
-            if(arr1.indexOf(arr2[j]) === -1){
-            newArr.push(arr2[j]);
-            }
-        }
-  
-    return newArr;
+  var newArr = [];
+
+  for (let i = 0; i < arr1.length; i++) {       // Iterate through arr1 and match against the index of arr2
+    if (arr2.indexOf(arr1[i]) === -1) {       // If indexOf arr2 is -1 then that element is not present in arr1
+      newArr.push(arr1[i]);                   // newArr will push the element missing from arr1
+    }
+  }
+
+  for (let j = 0; j < arr2.length; j++) {       // A reverse iteration is performed to match indexOf arr1 to arr2
+    if (arr1.indexOf(arr2[j]) === -1) {
+      newArr.push(arr2[j]);
+    }
+  }
+
+  return newArr;
 }
-  
-  diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
-  
+
+diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Intermediate Algorithm Scripting: Seek and Destroy
@@ -56,25 +56,25 @@ function diffArray(arr1, arr2) {
 //Note
 //You have to use the arguments object.
 
-  function destroyer(arr) {
+function destroyer(arr) {
 
-    let finalElement = [];                                  // Declaring the final element to be displayed
-    let firstArray = Object.values(arr);                    // Initial Array found below is allocated to let firstArray
-    let forArguments = Object.values(arguments).splice(1);  // This is the arguments allocated within the function (splicing starts from index 1 to infinity)
-    
-    for(let i = 0; i < firstArray.length; i++){             // Iterating through firstArray and setting the iteration to let iteratedArray below
-      let iteratedArray = firstArray[i];
-    
-      if(forArguments.indexOf(iteratedArray) === -1){       // If the forArguments variable is not present inside the iteratedArray variable 
-        finalElement.push(iteratedArray)                    // Then the finalElement variable will push the iteratedArray variable
-      }
+  let finalElement = [];                                  // Declaring the final element to be displayed
+  let firstArray = Object.values(arr);                    // Initial Array found below is allocated to let firstArray
+  let forArguments = Object.values(arguments).splice(1);  // This is the arguments allocated within the function (splicing starts from index 1 to infinity)
+
+  for (let i = 0; i < firstArray.length; i++) {             // Iterating through firstArray and setting the iteration to let iteratedArray below
+    let iteratedArray = firstArray[i];
+
+    if (forArguments.indexOf(iteratedArray) === -1) {       // If the forArguments variable is not present inside the iteratedArray variable 
+      finalElement.push(iteratedArray)                    // Then the finalElement variable will push the iteratedArray variable
     }
-    
-      return finalElement;
-    }
-    
-    console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3));
-    
+  }
+
+  return finalElement;
+}
+
+console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3));
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Intermediate Algorithm Scripting: Wherefore art thou
@@ -84,17 +84,17 @@ function diffArray(arr1, arr2) {
 
 function whatIsInAName(collection, source) {
 
-    let keys = Object.keys(source);                                     // Find the key of the source by declaring a variable
+  let keys = Object.keys(source);                                     // Find the key of the source by declaring a variable
 
-      return collection.filter(function(obj){                           // Filter through the collection to find the variable 'keys'
-        for (let key of keys){                                          // Looking within the key inside 'keys' which is currently the source (last: "capulet")
-          if(!obj.hasOwnProperty(key) || obj[key] !== source[key]){     // Checking to see if the obj doesn't have key inside the 'keys' ie (if last: "capulet" isn't inside collection)
-            return false
+  return collection.filter(function (obj) {                           // Filter through the collection to find the variable 'keys'
+    for (let key of keys) {                                          // Looking within the key inside 'keys' which is currently the source (last: "capulet")
+      if (!obj.hasOwnProperty(key) || obj[key] !== source[key]) {     // Checking to see if the obj doesn't have key inside the 'keys' ie (if last: "capulet" isn't inside collection)
+        return false
+      }
     }
-  }
 
-  return true
-})
+    return true
+  })
 
 }
 
@@ -133,19 +133,19 @@ function myReplace(str, before, after) {
 
   let newString = str.split(" ");                                     // Declare a new variable which holds the 'str' split into individual string values
 
-  for(let i = 0; i < newString.length; i++){                          // Iterate through the 'st' and check to see if 'before' value is present using code below
-    if(newString[i] === before){                                      // Check to see if 'before' is present in newString iteration. If present then return newString[i] to = 'after'
+  for (let i = 0; i < newString.length; i++) {                          // Iterate through the 'st' and check to see if 'before' value is present using code below
+    if (newString[i] === before) {                                      // Check to see if 'before' is present in newString iteration. If present then return newString[i] to = 'after'
 
-      if(newString[i][0] === newString[i][0].toUpperCase()){          // Extra conditionals to check whether the iterated value has a capatalised initial letter
+      if (newString[i][0] === newString[i][0].toUpperCase()) {          // Extra conditionals to check whether the iterated value has a capatalised initial letter
         after = after[0].toUpperCase() + after.slice(1);
-        };
+      };
 
-      if(newString[i][0] === newString[i][0].toLowerCase()){          // Extra conditionals to check whether the iterated value has a lower cased initial letter
+      if (newString[i][0] === newString[i][0].toLowerCase()) {          // Extra conditionals to check whether the iterated value has a lower cased initial letter
         after = after[0].toLowerCase() + after.slice(1);
-        };
+      };
 
-       newString[i] = after                                           // Once all conditionals are met, newString at position [i] will be replaced with 'after'
-    }   
+      newString[i] = after                                           // Once all conditionals are met, newString at position [i] will be replaced with 'after'
+    }
   }
 
 
@@ -168,29 +168,29 @@ console.log(result)
 
 function pairElement(str) {
 
-  function calculate(initial){                                        // This is a helper function using base pairs as arguments
-    if(initial === "A"){
+  function calculate(initial) {                                        // This is a helper function using base pairs as arguments
+    if (initial === "A") {
       return "T"
-    } else if (initial === "T"){
+    } else if (initial === "T") {
       return "A"
-    } else if (initial === "G"){
+    } else if (initial === "G") {
       return "C"
-    } else if (initial === "C"){
+    } else if (initial === "C") {
       return "G"
-    } 
+    }
   }
-  
+
   let split = str.split("").map(newStr => {                           // The str is split, creating individual strings. It is then passed into a map function which inserts data
     let pair = [newStr, calculate(newStr)]                            // Using the helper function above
     return pair
   });
-  
-  
+
+
   return split
-  
-  }
-  
-  pairElement("GCG");
+
+}
+
+pairElement("GCG");
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -205,16 +205,16 @@ function fearNotLetter(str) {
   let startingPosition = alphabet.indexOf(str[0]);                      // Initialise a starting position of the str against the alphabet variable
   let focussedAlphabet = alphabet.slice(startingPosition);              // This will use the alphabet as a reference to the starting position to be iterated below 
 
-  for(let i = 0; i < focussedAlphabet.length; i++){                     // Iterating through focussed alphabet 
+  for (let i = 0; i < focussedAlphabet.length; i++) {                     // Iterating through focussed alphabet 
 
-    if(str.indexOf(focussedAlphabet[i])=== -1){                         // Using the iterated focussed alphabet and checking which index is the str. If index is -1 it means the letter is absent
+    if (str.indexOf(focussedAlphabet[i]) === -1) {                         // Using the iterated focussed alphabet and checking which index is the str. If index is -1 it means the letter is absent
       return focussedAlphabet[i];                                       // If the letter is absent, return the absent letter using focussedAlphabet[i]
-    } 
+    }
   }
 
-  if (str.indexOf(alphabet > 0)){                                       // If all of the alphabet is present then return undefined. (If index is > 0 then all letters are present)
-      return undefined
-    };
+  if (str.indexOf(alphabet > 0)) {                                       // If all of the alphabet is present then return undefined. (If index is > 0 then all letters are present)
+    return undefined
+  };
 
   return focussedAlphabet
 
@@ -238,88 +238,88 @@ function uniteUnique(arr) {
 
   values.forEach(groupOfGroups => {                                    // Check to see if the values variable is present within the finalCollection
     groupOfGroups.forEach(individualValues => {
-      if(finalCollection.indexOf(individualValues) === -1){
+      if (finalCollection.indexOf(individualValues) === -1) {
         finalCollection.push(individualValues);                        // If not then final collection will push the individual values
       }
     });
   });
-  
+
   return finalCollection
+}
+
+uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Intermediate Algorithm Scripting: Convert HTML Entities
+// Convert the characters &, <, >, " (double quote), and ' (apostrophe), in a string to their corresponding HTML entities.
+
+function convertedElements(letter) {                                  // Create a function which takes in symbols and returns their HTML entities
+  if (letter === "&") {
+    return "&amp;"
+  } else if (letter === "<") {
+    return "&lt;"
+  } else if (letter === ">") {
+    return "&gt;"
+  } else if (letter === "'") {
+    return "&apos;"
+  } else if (letter === '"') {
+    return "&quot;"
   }
-  
-  uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
+}
 
-  
-  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  // Intermediate Algorithm Scripting: Convert HTML Entities
-  // Convert the characters &, <, >, " (double quote), and ' (apostrophe), in a string to their corresponding HTML entities.
+function convertHTML(str) {
 
-  function convertedElements(letter){                                  // Create a function which takes in symbols and returns their HTML entities
-    if(letter === "&"){
-      return "&amp;"
-    } else if(letter === "<"){
-      return "&lt;"
-    } else if(letter === ">"){
-      return "&gt;"
-    } else if(letter === "'"){
-      return "&apos;"
-    } else if (letter === '"'){
-      return "&quot;"
-    }
+  let convertToCharacters = ["&", "<", ">", '"', "'"];              // Create a variable filled with symbols to lookout for and convert
+
+  for (let i = 0; i < str.length; i++) {                             // Iterate through the str and check to see which index is the symbol within the str
+    if (convertToCharacters.indexOf(str[i]) != -1) {                // If indexOf convertToCharacters is NOT -1 (Meaning its present inside the str)
+      str = str.slice(0, i) +                                     // Str will slice at index 0 and end at index i (Where the symbol is) creating a new str without the symbol
+        convertedElements(str[i]) +                                 // The str will + the function (convertToElements) created earlier and pass in the str at position [i]
+        str.slice(i + 1)                                            // The final str will slice the initial str at position (i + 1) which is the next index after position i
+    };
   }
-  
-  
-  function convertHTML(str) {
-  
-    let convertToCharacters = ["&", "<", ">", '"', "'"];              // Create a variable filled with symbols to lookout for and convert
 
-    for (let i = 0; i < str.length; i++){                             // Iterate through the str and check to see which index is the symbol within the str
-        if(convertToCharacters.indexOf(str[i]) != -1){                // If indexOf convertToCharacters is NOT -1 (Meaning its present inside the str)
-          str = str.slice(0, i) +                                     // Str will slice at index 0 and end at index i (Where the symbol is) creating a new str without the symbol
-          convertedElements(str[i]) +                                 // The str will + the function (convertToElements) created earlier and pass in the str at position [i]
-          str.slice(i + 1)                                            // The final str will slice the initial str at position (i + 1) which is the next index after position i
-        };
+  return str;
+}
+
+let result = convertHTML("Sixty > twelve");
+
+console.log(result)
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Intermediate Algorithm Scripting: Sum All Odd Fibonacci Numbers
+// Given a positive integer num, return the sum of all odd Fibonacci numbers that are less than or equal to num.
+// The first two numbers in the Fibonacci sequence are 1 and 1. Every additional number in the sequence is the sum of the two previous numbers. 
+// The first six numbers of the Fibonacci sequence are 1, 1, 2, 3, 5 and//8.
+// For example, sumFibs(10) should return 10 because all odd Fibonacci numbers less than or equal to 10 are 1, 1, 3, and 5.
+
+function sumFibs(num) {
+
+  let fibbonacciSequence = [0, 1];                                  // Initialise the fibbonacci sequence into a variable
+  let sumOfOddFibbonacciNumbers = 1;                                // Set the sum of all fib numbers (0 + 1 = 1)
+  let counter = fibbonacciSequence[fibbonacciSequence.length - 2] + // Counter will include fib sequence at position -2 and -1
+    fibbonacciSequence[fibbonacciSequence.length - 1]
+
+  while (counter <= num) {                                           // While counter is below num , fib sequence will push counter
+    fibbonacciSequence.push(counter);
+
+    if (counter % 2 != 0) {                                           // If counter is an even number the sum of fib numbers will = counter (which will count the odd numbers)
+      sumOfOddFibbonacciNumbers += counter;
     }
-    
-    return str;
+
+    counter = fibbonacciSequence[fibbonacciSequence.length - 2] +  // Counter will sum up all odd numbers
+      fibbonacciSequence[fibbonacciSequence.length - 1]
+
   }
-  
-  let result = convertHTML("Sixty > twelve");
-  
-  console.log(result)
+  return sumOfOddFibbonacciNumbers;
 
-  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+}
 
-  // Intermediate Algorithm Scripting: Sum All Odd Fibonacci Numbers
-  // Given a positive integer num, return the sum of all odd Fibonacci numbers that are less than or equal to num.
-  // The first two numbers in the Fibonacci sequence are 1 and 1. Every additional number in the sequence is the sum of the two previous numbers. 
-  // The first six numbers of the Fibonacci sequence are 1, 1, 2, 3, 5 and//8.
-  // For example, sumFibs(10) should return 10 because all odd Fibonacci numbers less than or equal to 10 are 1, 1, 3, and 5.
-
-  function sumFibs(num) {
-
-    let fibbonacciSequence = [0, 1];                                  // Initialise the fibbonacci sequence into a variable
-    let sumOfOddFibbonacciNumbers = 1;                                // Set the sum of all fib numbers (0 + 1 = 1)
-    let counter = fibbonacciSequence[fibbonacciSequence.length - 2] + // Counter will include fib sequence at position -2 and -1
-                  fibbonacciSequence[fibbonacciSequence.length - 1]
-    
-    while (counter <= num){                                           // While counter is below num , fib sequence will push counter
-      fibbonacciSequence.push(counter);
-    
-      if(counter % 2 != 0){                                           // If counter is an even number the sum of fib numbers will = counter (which will count the odd numbers)
-        sumOfOddFibbonacciNumbers += counter;                         
-      }
-    
-      counter = fibbonacciSequence[fibbonacciSequence.length - 2] +  // Counter will sum up all odd numbers
-                fibbonacciSequence[fibbonacciSequence.length - 1]
-    
-    }
-    return sumOfOddFibbonacciNumbers;
-    
-    }
-    
-    sumFibs(4);
+sumFibs(4);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -329,33 +329,33 @@ function uniteUnique(arr) {
 
 // Rewrite sumPrimes so it returns the sum of all prime numbers that are less than or equal to num.
 
-function isPrime(number){                                             // Create a function that first finds the odd number using a given number
+function isPrime(number) {                                             // Create a function that first finds the odd number using a given number
 
   let counter = 2;                                                    // Start the counter at 2 and find remainders of numbers using moduler to find odd numbers
 
-        while(counter < number){                                      // While counter is lower than number look for if statement
-           if(number % counter === 0)                                 // If the remainder of counter while dividing into number is 0 then this is false (even number)
-           { return false }
-    
-           counter += 1                                               // In the meantime the counter will += 1 then return true
-           }
+  while (counter < number) {                                      // While counter is lower than number look for if statement
+    if (number % counter === 0)                                 // If the remainder of counter while dividing into number is 0 then this is false (even number)
+    { return false }
+
+    counter += 1                                               // In the meantime the counter will += 1 then return true
+  }
   return true
 }
 
 function sumPrimes(num) {
 
-          if(num <= 1)                                                // So no negative numbers or 0 is inputted
-          { return "Numbers lower than zero invalid" }
+  if (num <= 1)                                                // So no negative numbers or 0 is inputted
+  { return "Numbers lower than zero invalid" }
 
-          let counter = 2;                                            // Initialise counter again at 2
-          let sum = 0;                                                // Initialise sum at 0 - This will be the final output
+  let counter = 2;                                            // Initialise counter again at 2
+  let sum = 0;                                                // Initialise sum at 0 - This will be the final output
 
-          while(counter <= num){                                      // While counter is lower or equal to num inputted by user
-          if(isPrime(counter) === true)                               // Using the previously built function above isPrime(number) is true then sum will + counter
-          { sum += counter }
+  while (counter <= num) {                                      // While counter is lower or equal to num inputted by user
+    if (isPrime(counter) === true)                               // Using the previously built function above isPrime(number) is true then sum will + counter
+    { sum += counter }
 
-          counter += 1;
-          }
+    counter += 1;
+  }
 
   return sum;
 }
@@ -374,50 +374,50 @@ sumPrimes(10);
 function smallestCommons(arr) {
 
   let lowerNum, higherNum;
-  
-    if (arr[0] > arr[1]){
-      lowerNum = arr[1];
-      higherNum = arr[0];
-    } else {
-      lowerNum = arr[0];
-      higherNum = arr[1]
-    }
-  
+
+  if (arr[0] > arr[1]) {
+    lowerNum = arr[1];
+    higherNum = arr[0];
+  } else {
+    lowerNum = arr[0];
+    higherNum = arr[1]
+  }
+
   let range = getRange(lowerNum, higherNum);
-  
+
   let multiple = 1;
-    while (multiple < 1000000){
-      let higherCommonMultiple = (lowerNum * multiple)* higherNum;
-  
-      let trueCount = 0;
-        for (let i = 0; i < range.length; i++){
-  
-        if(higherCommonMultiple % range[i] === 0){
+  while (multiple < 1000000) {
+    let higherCommonMultiple = (lowerNum * multiple) * higherNum;
+
+    let trueCount = 0;
+    for (let i = 0; i < range.length; i++) {
+
+      if (higherCommonMultiple % range[i] === 0) {
         trueCount += 1;
-  
-        if(trueCount === range.length){
+
+        if (trueCount === range.length) {
           return higherCommonMultiple
         }
-       }
       }
-  
-      multiple += 1;
     }
-  
-  return arr;
-  }
-  
-  function getRange (lowN, highN){
-    let resultRange = [];
-    for (let i = lowN; i <= highN; i++){
-      resultRange.push(i);
-    }
-    return resultRange;
-  }
-  
-  smallestCommons([1,5]);
 
-  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    multiple += 1;
+  }
+
+  return arr;
+}
+
+function getRange(lowN, highN) {
+  let resultRange = [];
+  for (let i = lowN; i <= highN; i++) {
+    resultRange.push(i);
+  }
+  return resultRange;
+}
+
+smallestCommons([1, 5]);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Intermediate Algorithm Scripting: Drop it
 // Given the array arr, iterate through and remove each element starting from the first element (the 0 index) until the function func returns true when the iterated element is passed through it.
@@ -427,9 +427,9 @@ function dropElements(arr, func) {
 
   let result = [];                                                   // Initialise the result with an empty array, so nothing is return if n if not within the array
 
-  for(let i = 0; i < arr.length; i++){                               // The for loop will iterate through the array and match against the number within the function (n)
+  for (let i = 0; i < arr.length; i++) {                               // The for loop will iterate through the array and match against the number within the function (n)
 
-    if(func(arr[i])){                                                // If func(n) is at position arr[i], this means that n is present within the arr 
+    if (func(arr[i])) {                                                // If func(n) is at position arr[i], this means that n is present within the arr 
       return arr.slice(i);                                           // arr.slice will create new array from position i
     }
   }
@@ -438,7 +438,7 @@ function dropElements(arr, func) {
   return result;                                                     // If nothing else is present, then result will return an empty array
 }
 
-dropElements([1, 2, 3], function(n) {return n < 3; });
+dropElements([1, 2, 3], function (n) { return n < 3; });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -446,16 +446,16 @@ dropElements([1, 2, 3], function(n) {return n < 3; });
 // Flatten a nested array. You must account for varying levels of nesting.
 
 function steamrollArray(arr, result = []) {
-  
+
   arr.forEach((item) => {                                            // Loop created for each item being an array
     if (Array.isArray(item)) {                                       // If item is an array, then the loop will open the array to find the item
-      steamrollArray(item, result);                   
-    } else {  
+      steamrollArray(item, result);
+    } else {
       result.push(item);                                             // If item is NOT an array, then the loop will push the item onto the result array
     }
 
   });
-  
+
   return result;
 }
 
@@ -478,11 +478,11 @@ function binaryAgent(str) {
     let decipheredLetter = String.fromCharCode(characterCode)
     return decipheredLetter;
   }).join("");
- 
+
 }
 
-let binaryData = 
-"01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111";
+let binaryData =
+  "01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111";
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -496,24 +496,24 @@ let binaryData =
 function truthCheck(collection, pre) {
 
   let result = true;                                                // Initialise the result to start at "true" , or If pre is in collection then return true 
-    for (let i = 0; i < collection.length; i++){                    // Iterate through the collection array to be compared against the predicate (pre)
-        if (                                                        // The if statement will find all "falsy" values within the collection to return the result as false 
-            Number.isNaN(collection[i][pre]) ||                     
-            collection[i][pre] === undefined ||
-            collection[i][pre] === 0 ||
-            collection[i][pre] === null ||
-            collection[i][pre] === ""  
-            ){
-              return false
-             }
-          }
-  
-   return result;
-  
+  for (let i = 0; i < collection.length; i++) {                    // Iterate through the collection array to be compared against the predicate (pre)
+    if (                                                        // The if statement will find all "falsy" values within the collection to return the result as false 
+      Number.isNaN(collection[i][pre]) ||
+      collection[i][pre] === undefined ||
+      collection[i][pre] === 0 ||
+      collection[i][pre] === null ||
+      collection[i][pre] === ""
+    ) {
+      return false
+    }
   }
-  truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy", "sex": "male"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex");
 
-  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  return result;
+
+}
+truthCheck([{ "user": "Tinky-Winky", "sex": "male" }, { "user": "Dipsy", "sex": "male" }, { "user": "Laa-Laa", "sex": "female" }, { "user": "Po", "sex": "female" }], "sex");
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Intermediate Algorithm Scripting: Arguments Optional
 // Create a function that sums two arguments together. If only one argument is provided, then return a function that expects one argument and returns the sum.
@@ -528,80 +528,80 @@ function truthCheck(collection, pre) {
 function addTogether() {
 
   let firstArgument = arguments[0];                                   // Initialise the first argument to be the first index as it will always be defined
-  
-  if (arguments.length > 1){                                          // The "arguments" is the arguments or parameters of the function addTogether()
-  let secondArgument = arguments[1];                                  // The second argument will be defined only if there is more than 1 argument
-  if (argumentCheck(firstArgument) !== undefined &&                   // This will check if the first and second is NOT undefined, meaning that it holds a number each
-     argumentCheck(secondArgument) !== undefined){
-       return firstArgument + secondArgument                          // Then both numbers will be summed up
-     } else {
-       return undefined                                               // If one of the two arguments is undefined then the function will return undefined
-    } 
-  } 
-  
-  else if (arguments.length === 1){                                   // // The second argument will be defined only if there is more than 1 argument
-    if (argumentCheck(firstArgument) === undefined){                  // This will use the function below to check if the second argument is a number and if so then return undefined
+
+  if (arguments.length > 1) {                                          // The "arguments" is the arguments or parameters of the function addTogether()
+    let secondArgument = arguments[1];                                  // The second argument will be defined only if there is more than 1 argument
+    if (argumentCheck(firstArgument) !== undefined &&                   // This will check if the first and second is NOT undefined, meaning that it holds a number each
+      argumentCheck(secondArgument) !== undefined) {
+      return firstArgument + secondArgument                          // Then both numbers will be summed up
+    } else {
+      return undefined                                               // If one of the two arguments is undefined then the function will return undefined
+    }
+  }
+
+  else if (arguments.length === 1) {                                   // // The second argument will be defined only if there is more than 1 argument
+    if (argumentCheck(firstArgument) === undefined) {                  // This will use the function below to check if the second argument is a number and if so then return undefined
       return undefined
     } else {
-      return function(secondArgument){                                // Or if the second or first argument is a number then return the sum, if not then return undefined
-        if (argumentCheck(firstArgument) !== undefined && 
-     argumentCheck(secondArgument) !== undefined){
-       return firstArgument + secondArgument
+      return function (secondArgument) {                                // Or if the second or first argument is a number then return the sum, if not then return undefined
+        if (argumentCheck(firstArgument) !== undefined &&
+          argumentCheck(secondArgument) !== undefined) {
+          return firstArgument + secondArgument
         }
       }
     }
   }
-  
+
+}
+
+function argumentCheck(argument) {                                    // This function will look to see if the given argument is a number and used above
+  if (typeof argument === "number") {
+    return argument;
+  } else {
+    return undefined;
   }
-  
-  function argumentCheck(argument){                                    // This function will look to see if the given argument is a number and used above
-    if (typeof argument === "number"){
-      return argument;
-    } else {
-      return undefined;
-    }
-  }
-  
-  console.log(addTogether(2,3));
-  
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+}
+
+console.log(addTogether(2, 3));
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Intermediate Algorithm Scripting: Make a Person
 // Fill in the object constructor with the following methods below:
-  
-  getFirstName()
-  getLastName()
-  getFullName()
-  setFirstName(first)
-  setLastName(last)
-  setFullName(firstAndLast)
+
+getFirstName()
+getLastName()
+getFullName()
+setFirstName(first)
+setLastName(last)
+setFullName(firstAndLast)
 
 // Run the tests to see the expected output for each method. 
 // The methods that take an argument must accept only one argument and it has to be a string. These methods must be the only available means of interacting with the object.
 
-var Person = function(firstAndLast) {
+var Person = function (firstAndLast) {
 
-  this.getFullName = function() {                                      // This will give the full name of the object
+  this.getFullName = function () {                                      // This will give the full name of the object
     return firstAndLast;
   };
 
-  this.getFirstName = function(){                                      // This will split the array and give the first name only
+  this.getFirstName = function () {                                      // This will split the array and give the first name only
     return firstAndLast.split(" ")[0];
   };
 
-  this.getLastName = function(){                                       // This will split the array and give the last name only
+  this.getLastName = function () {                                       // This will split the array and give the last name only
     return firstAndLast.split(" ")[1]
   };
 
-  this.setFullName = function(newFullName){                            // This will set the newFullName and replace the previous full name
+  this.setFullName = function (newFullName) {                            // This will set the newFullName and replace the previous full name
     return firstAndLast = newFullName
   };
 
-  this.setFirstName = function(newFirstName){                          // This will set the new first name, replace the previous first name and use the predefined last name
+  this.setFirstName = function (newFirstName) {                          // This will set the new first name, replace the previous first name and use the predefined last name
     return firstAndLast = newFirstName + " " + this.getLastName();
   };
 
-  this.setLastName = function(newLastName){                            // This will set the new first name, replace the previous last name and use the predefined first name
+  this.setLastName = function (newLastName) {                            // This will set the new first name, replace the previous last name and use the predefined first name
     return firstAndLast = this.getFirstName() + " " + newLastName;
   };
 
@@ -626,16 +626,16 @@ function orbitalPeriod(arr) {
 
   let orbitalPeriodResults = [];
 
-  arr.forEach(function(dataPoint){                                    
+  arr.forEach(function (dataPoint) {
     let translatedDataPoint = {};
     let twoTimePie = Math.PI * 2;
     let earthRadiusPlusAvgAltitude = 6367.4447 + dataPoint.avgAlt;
-    let topOfDivider = Math.pow(earthRadiusPlusAvgAltitude,3) ;
+    let topOfDivider = Math.pow(earthRadiusPlusAvgAltitude, 3);
 
-    let numberToSquare = topOfDivider /GM;
+    let numberToSquare = topOfDivider / GM;
     let squaredResult = Math.sqrt(numberToSquare);
 
-    let orbitalPeriodResult = twoTimePie * squaredResult; 
+    let orbitalPeriodResult = twoTimePie * squaredResult;
 
     translatedDataPoint.name = dataPoint.name;
     translatedDataPoint.orbitalPeriod = Math.round(orbitalPeriodResult);
@@ -649,12 +649,13 @@ function orbitalPeriod(arr) {
 }
 
 orbitalPeriod([
-  {name : "sputnik",                                                  // DataPoints
-  avgAlt : 35873.5553
+  {
+    name: "sputnik",                                                  // DataPoints
+    avgAlt: 35873.5553
   }]);
 
 
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // JavaScript Algorithms and Data Structures Projects: Palindrome Checker
 // Return true if the given string is a palindrome. Otherwise, return false.
@@ -670,7 +671,7 @@ function palindrome(str) {
   let polishedString = str.replace(/\W+|_/g, "").toLowerCase();       // Initialise a variable by using regex to find all white spaces and underscores globally before lowercase
   let reversedString = polishedString.split("").reverse().join("");   // Split the polished str to be reveresed and rejoined
 
-  if (polishedString != reversedString){                              // If the polished str is not the same as reversed str then return false
+  if (polishedString != reversedString) {                              // If the polished str is not the same as reversed str then return false
     return false
   }
 
@@ -691,21 +692,21 @@ function convertToRoman(num) {
   let result = ""                                                                               // Initialise an empty variable
   let romanNumbers = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"];   // Initialise Roman numerals
   let englishNumbers = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]                   // Initialise English numerals
-  
-  
-  for(let i = 0; i < englishNumbers.length; i++){                                               // Iterate through each english number until length complete
-      while(num >= englishNumbers[i]){                                                          // Action to perform for every iteration that num is more than or equal to englishNumber[i]
-          result += romanNumbers[i];                                                            // Result is romanNumbers at position [i]
-          num -= englishNumbers[i];                                                             // num will decrease until iteration is complete
-      }
+
+
+  for (let i = 0; i < englishNumbers.length; i++) {                                               // Iterate through each english number until length complete
+    while (num >= englishNumbers[i]) {                                                          // Action to perform for every iteration that num is more than or equal to englishNumber[i]
+      result += romanNumbers[i];                                                            // Result is romanNumbers at position [i]
+      num -= englishNumbers[i];                                                             // num will decrease until iteration is complete
+    }
   }
-  
-  
-  
-   return result;
-  }
-  
-  convertToRoman(12);
+
+
+
+  return result;
+}
+
+convertToRoman(12);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -725,185 +726,187 @@ function rot13(str) {
   let decodedResult = "";                                                     // Initialise an empty string
   let alphabetStart = "ABCDEFGHIJKLM";                                        // Initialise the first 13 characters of alphabet
   let alphabetEnd = "NOPQRSTUVWXYZ";                                          // Initialise the second 13 characters of alphabet
-  
-  for(let i = 0; i < str.length; i++){                                        // For loop to cycle through str
+
+  for (let i = 0; i < str.length; i++) {                                        // For loop to cycle through str
     let letterToDecode = str[i];                                              // Initliase variable for str at position [i]
-  
-  if(alphabetStart.indexOf(letterToDecode) >= 0){                             // If the indexOf letterToDecode is present 
-    decodedResult += alphabetEnd[alphabetStart.indexOf(letterToDecode)];      // decodedResult will be the same position in the opposite alphabet varable
-  } else if(alphabetEnd.indexOf(letterToDecode) >= 0){
-    decodedResult += alphabetStart[alphabetEnd.indexOf(letterToDecode)];      // Vice Versa
-  } else {
-    decodedResult += letterToDecode;                                          // Otherwise the decodedResult will be the letterCode
+
+    if (alphabetStart.indexOf(letterToDecode) >= 0) {                             // If the indexOf letterToDecode is present 
+      decodedResult += alphabetEnd[alphabetStart.indexOf(letterToDecode)];      // decodedResult will be the same position in the opposite alphabet varable
+    } else if (alphabetEnd.indexOf(letterToDecode) >= 0) {
+      decodedResult += alphabetStart[alphabetEnd.indexOf(letterToDecode)];      // Vice Versa
+    } else {
+      decodedResult += letterToDecode;                                          // Otherwise the decodedResult will be the letterCode
+    }
   }
+
+  return decodedResult;
+}
+
+console.log(rot13("SERR PBQR PNZC"));                                       // Returns FREE CODE CAMP
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// freeCodeCamp.org JavaScript Algorithms and Data Structures Projects: Telephone Number Validator
+//Return true if the passed string looks like a valid US phone number.
+
+// For this challenge you will be presented with a string such as 800-692-7753 or 8oo-six427676;laskdjf. Your job is to validate or reject the US phone number based on any combination of the formats provided above. The area code is required. If the country code is provided, you must confirm that the country code is 1. Return true if the string is a valid US phone number; otherwise return false.
+
+
+function telephoneCheck(str) {
+
+  if (str.indexOf("(") === -1 && str.indexOf(")") > -1) {
+    return false;
   }
-    
-    return decodedResult;
+
+  if (str[0] === "-") {
+    return false;
   }
-  
-  console.log(rot13("SERR PBQR PNZC"));                                       // Returns FREE CODE CAMP
-  
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  // freeCodeCamp.org JavaScript Algorithms and Data Structures Projects: Telephone Number Validator
-  //Return true if the passed string looks like a valid US phone number.
+  if (str.indexOf(")") - str.indexOf("(") >= 5) {
+    return false;
+  }
 
-  // For this challenge you will be presented with a string such as 800-692-7753 or 8oo-six427676;laskdjf. Your job is to validate or reject the US phone number based on any combination of the formats provided above. The area code is required. If the country code is provided, you must confirm that the country code is 1. Return true if the string is a valid US phone number; otherwise return false.
+  let polishedPhone = str.replace(/-| /g, "");
+
+  if (polishedPhone.indexOf("(") < polishedPhone.indexOf(")")) {
+    polishedPhone = polishedPhone.replace(/\(|\)/g, "");
+  }
+
+  if (polishedPhone.length === 10) {
+    return true;
+  } else if (polishedPhone.length === 11 && polishedPhone[0] === "1") {
+    return true;
+  }
 
 
-  function telephoneCheck(str) {
 
-    if (str.indexOf("(") === -1 && str.indexOf(")") > -1){
-          return false;
+  return false;
+}
+
+telephoneCheck("555-555-5555");
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// JavaScript Algorithms and Data Structures Projects: Cash Register
+// Design a cash register drawer function checkCashRegister() that accepts purchase price as the first argument (price), payment as the second argument (cash), and cash-in-drawer (cid) as the third argument.
+
+// cid is a 2D array listing available currency.
+
+// The checkCashRegister() function should always return an object with a status key and a change key.
+
+// Return {status: "INSUFFICIENT_FUNDS", change: []} if cash-in-drawer is less than the change due, or if you cannot return the exact change.
+
+// Return {status: "CLOSED", change: [...]} with cash-in-drawer as the value for the key change if it is equal to the change due.
+
+// Otherwise, return {status: "OPEN", change: [...]}, with the change due in coins and bills, sorted in highest to lowest order, as the value of the change key.
+
+
+var denom = [
+  { name: "ONE HUNDRED", val: 100.0 },
+  { name: "TWENTY", val: 20.0 },
+  { name: "TEN", val: 10.0 },
+  { name: "FIVE", val: 5.0 },
+  { name: "ONE", val: 1.0 },
+  { name: "QUARTER", val: 0.25 },
+  { name: "DIME", val: 0.1 },
+  { name: "NICKEL", val: 0.05 },
+  { name: "PENNY", val: 0.01 }
+];
+
+function checkCashRegister(price, cash, cid) {
+  var output = { status: null, change: [] };
+  var change = cash - price;
+
+  // Transform CID array into drawer object
+  var register = cid.reduce(
+    function (acc, curr) {
+      acc.total += curr[1];
+      acc[curr[0]] = curr[1];
+      return acc;
+    },
+    { total: 0 }
+  );
+
+  // Handle exact change
+  if (register.total === change) {
+    output.status = "CLOSED";
+    output.change = cid;
+    return output;
+  }
+
+  // Handle obvious insufficient funds
+  if (register.total < change) {
+    output.status = "INSUFFICIENT_FUNDS";
+    return output;
+  }
+
+  // Loop through the denomination array
+  var change_arr = denom.reduce(function (acc, curr) {
+    var value = 0;
+    // While there is still money of this type in the drawer
+    // And while the denomination is larger than the change remaining
+    while (register[curr.name] > 0 && change >= curr.val) {
+      change -= curr.val;
+      register[curr.name] -= curr.val;
+      value += curr.val;
+
+      // Round change to the nearest hundreth deals with precision errors
+      change = Math.round(change * 100) / 100;
     }
-    
-    if (str[0] === "-"){
-      return false;
+    // Add this denomination to the output only if any was used.
+    if (value > 0) {
+      acc.push([curr.name, value]);
     }
-    
-    if(str.indexOf(")") - str.indexOf("(") >= 5){
-      return false;
-    }
-    
-    let polishedPhone = str.replace(/-| /g, "");
-    
-    if(polishedPhone.indexOf("(") < polishedPhone.indexOf(")")){
-      polishedPhone = polishedPhone.replace(/\(|\)/g, "");
-    }
-    
-    if(polishedPhone.length === 10){
-      return true;
-    } else if (polishedPhone.length === 11 && polishedPhone[0] === "1"){
-      return true;
-    }
-    
-    
-    
-      return false;
-    }
-    
-    telephoneCheck("555-555-5555");
+    return acc; // Return the current change_arr
+  }, []); // Initial value of empty array for reduce
+
+  // If there are no elements in change_arr or we have leftover change, return
+  // the string "Insufficient Funds"
+  if (change_arr.length < 1 || change > 0) {
+    output.status = "INSUFFICIENT_FUNDS";
+    return output;
+  }
+
+  // Here is your change, ma'am.
+  output.status = "OPEN";
+  output.change = change_arr;
+  return output;
+}
+
+// test here
+checkCashRegister(19.5, 20.0, [
+  ["PENNY", 1.01],
+  ["NICKEL", 2.05],
+  ["DIME", 3.1],
+  ["QUARTER", 4.25],
+  ["ONE", 90.0],
+  ["FIVE", 55.0],
+  ["TEN", 20.0],
+  ["TWENTY", 60.0],
+  ["ONE HUNDRED", 100.0]
+]);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Function to calculate Body Mass Index - Using weight & height values and returning a string value
+function bmi(weight, height) {
+
+  let result = "";
+  let bmi = weight / (height * height);
+
+  if (bmi <= 18.5) { result += "Underweight" }
+  else if (bmi <= 25) { result += "Normal" }
+  else if (bmi <= 30) { result += "Overweight" }
+  else if (bmi > 30) { result += "obese" }
 
 
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-   // JavaScript Algorithms and Data Structures Projects: Cash Register
-  // Design a cash register drawer function checkCashRegister() that accepts purchase price as the first argument (price), payment as the second argument (cash), and cash-in-drawer (cid) as the third argument.
-
-  // cid is a 2D array listing available currency.
-
-  // The checkCashRegister() function should always return an object with a status key and a change key.
-
-  // Return {status: "INSUFFICIENT_FUNDS", change: []} if cash-in-drawer is less than the change due, or if you cannot return the exact change.
-
-  // Return {status: "CLOSED", change: [...]} with cash-in-drawer as the value for the key change if it is equal to the change due.
-
-  // Otherwise, return {status: "OPEN", change: [...]}, with the change due in coins and bills, sorted in highest to lowest order, as the value of the change key.
 
 
-    var denom = [
-      { name: "ONE HUNDRED", val: 100.0 },
-      { name: "TWENTY", val: 20.0 },
-      { name: "TEN", val: 10.0 },
-      { name: "FIVE", val: 5.0 },
-      { name: "ONE", val: 1.0 },
-      { name: "QUARTER", val: 0.25 },
-      { name: "DIME", val: 0.1 },
-      { name: "NICKEL", val: 0.05 },
-      { name: "PENNY", val: 0.01 }
-    ];
-    
-    function checkCashRegister(price, cash, cid) {
-      var output = { status: null, change: [] };
-      var change = cash - price;
-    
-      // Transform CID array into drawer object
-      var register = cid.reduce(
-        function(acc, curr) {
-          acc.total += curr[1];
-          acc[curr[0]] = curr[1];
-          return acc;
-        },
-        { total: 0 }
-      );
-    
-      // Handle exact change
-      if (register.total === change) {
-        output.status = "CLOSED";
-        output.change = cid;
-        return output;
-      }
-    
-      // Handle obvious insufficient funds
-      if (register.total < change) {
-        output.status = "INSUFFICIENT_FUNDS";
-        return output;
-      }
-    
-      // Loop through the denomination array
-      var change_arr = denom.reduce(function(acc, curr) {
-        var value = 0;
-        // While there is still money of this type in the drawer
-        // And while the denomination is larger than the change remaining
-        while (register[curr.name] > 0 && change >= curr.val) {
-          change -= curr.val;
-          register[curr.name] -= curr.val;
-          value += curr.val;
-    
-          // Round change to the nearest hundreth deals with precision errors
-          change = Math.round(change * 100) / 100;
-        }
-        // Add this denomination to the output only if any was used.
-        if (value > 0) {
-          acc.push([curr.name, value]);
-        }
-        return acc; // Return the current change_arr
-      }, []); // Initial value of empty array for reduce
-    
-      // If there are no elements in change_arr or we have leftover change, return
-      // the string "Insufficient Funds"
-      if (change_arr.length < 1 || change > 0) {
-        output.status = "INSUFFICIENT_FUNDS";
-        return output;
-      }
-    
-      // Here is your change, ma'am.
-      output.status = "OPEN";
-      output.change = change_arr;
-      return output;
-    }
-    
-    // test here
-    checkCashRegister(19.5, 20.0, [
-      ["PENNY", 1.01],
-      ["NICKEL", 2.05],
-      ["DIME", 3.1],
-      ["QUARTER", 4.25],
-      ["ONE", 90.0],
-      ["FIVE", 55.0],
-      ["TEN", 20.0],
-      ["TWENTY", 60.0],
-      ["ONE HUNDRED", 100.0]
-    ]);
 
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // Function to calculate Body Mass Index - Using weight & height values and returning a string value
-    function bmi(weight, height) {
-  
-      let result = "";
-      let bmi = weight/ (height * height);
-      
-      if(bmi <= 18.5){result += "Underweight"} 
-      else if (bmi <= 25){result += "Normal"}
-      else if (bmi <= 30){result += "Overweight"}
-      else if (bmi > 30){result += "obese"}
-        
-        
-        
-      
-      
-      return result;
-    }
-    
-    
-    console.log(bmi(95, 1.77))
+  return result;
+}
+
+
+console.log(bmi(95, 1.77))
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
